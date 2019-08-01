@@ -1,8 +1,11 @@
 # posos-challenge
 
-# Table of contents
+## Introduction
 
-* [Introduction](#introduction)
+The posos challenge builds on some concepts commonly used in the growing field of data science. These concepts walk you through a part of any data driven machine learning project, which include training, serving and exposing a model.
+
+## Table of contents
+
 * [Objectives](#objectives)
 * [General instructions](#general-instructions)
   * [Rules](#rules)
@@ -10,19 +13,13 @@
   * [Data](#data)
 * [Technical part](#technical-part)
   * [Building a model](#building-a-model)
-  * [Serving a model as a microservice](serving-a-model-as-a-microservice)
+  * [Serving a model as a microservice](#serving-a-model-as-a-microservice)
 * [Key concepts](#key-concepts)
   * [Makefile](#makefile)
   * [Docker](#docker)
 * [Bonus part](#bonus-part)
 * [How to get help](#support)
 * [Contributing](#contribution)
-
-- - -
-
-## Introduction
-
-The posos challenge builds on some concepts commonly used in the growing field of data science. These concepts walk you through a part of any data driven machine learning project, which include training, serving and exposing a model.
 
 - - -
 
