@@ -25,7 +25,7 @@ The posos challenge builds on some concepts commonly used in the growing field o
 
 ## Objectives
 
-Data science is much more than developping a model prototype. For industries, it is about implementing machine learning in products and services. For reasearch, it is about bringing machine learning algorithms to solve scientific challenges, and sharing an environment to reproduce the results. In both cases, you have to share your work with people, inside or outside your team. This can become very time consuming for you and very tedious for the others.
+Data science is much more than developping a model prototype. For industries, it is about implementing machine learning in products and services. For research, it is about bringing machine learning algorithms to solve scientific challenges, and sharing an environment to reproduce the results. In both cases, you have to share your work with people, inside or outside your team. This can become very time consuming for you and very tedious for the others.
 
 We do not expect you to produce a functional project, but to get familiar with the concepts you are not yet used to. Learning efficiently is crucially needed to gain the autonomy required to drive a machine learning project from the collection of data, collected accordingly to scientifics methods, to the production of an evolving interface which can easily be reused and improved.
 
@@ -145,7 +145,7 @@ Examples of docker images can be found in [examples directory](/examples/docker)
 - Implement a `test` in your Makefile to request the api with the provided test set to get predictions in a `(ID,question,intent)` format saved to a `predictions.csv` file in the root of your repository;
 - Use of an hyperparameter optimizer on a fixed validation set;
 - Quantify the variability of model performance;
-- Build a web interface to access model inference method.
+- Build a web interface for the API.
 
 - - -
 
