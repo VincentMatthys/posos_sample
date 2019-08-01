@@ -2,12 +2,20 @@
 
 # Table of contents
 
-* [Data](#data)
-* [Goals](#goals)
+* [Introduction](#introduction)
+* [Objectives](#objectives)
+* [General instructions](#general-instructions)
+  * [Rules](#rules)
+  * [Dependencies](#dependencies)
+  * [Data](#data)
+* [Technical part](#technical-part)
   * [Building a model](#building-a-model)
-  * [Serving a model](#serving-a-model)
-  * [Building a microservice](#building-a-microservice)
-* [Support](#support)
+  * [Serving a model as a microservice](serving-a-model-as-a-microservice)
+* [Key concepts](#key-concepts)
+  * [Makefile](#makefile)
+  * [Docker](#docker)
+* [Bonus part](#bonus-part)
+* [How to get help](#support)
 * [Contributing](#contribution)
 
 - - -
