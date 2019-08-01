@@ -38,11 +38,19 @@ Whatever the outcome of our meetings, we hope this project will help you for all
     - `api.Dockerfile`: specify the image to expose the model trained by `trainer.Dockerfile`
 - you must provide a Makefile in the root of the repository with the following rules:
     - `train`: build the model who will be served
-    - `api`: serve the trained model through an api which can be accessed on route `/intent` and port `4002` of the localhost.
+    - `api`: serve the trained model through an api
     - `test`: request the api with test set to get predictions
 - you must not push online:
-    - your credentials
+    - your possible credentials
     - the unencrypted dataset
+
+### Dependencies
+
+The following are the only required dependencies you should've installed on your system in order to complete the general instructions :
+- [`Git`](https://git-scm.com)
+- [`GnuPG`](https://gnupg.org)
+- [`Docker`](https://docs.docker.com/) - you should use the [Docker Engine - Community](https://docs.docker.com/install/)
+
 
 ### Data
 
@@ -50,7 +58,6 @@ Data are symetricly encrypted with GPG using a passphrase. To decrypt the file u
 ```bash
 gpg -d data.tgz.gpg  | tar -xz
 ```
-which requires [`GnuPG`](https://gnupg.org) to be installed.
 To get the passphrase, send me an email.
 
 - - -
@@ -60,18 +67,18 @@ To get the passphrase, send me an email.
 ### Building a model
 
 Building a machine learning model consist, non extensively, into the following parts:
-    - as
+  - split the training data into a train and a validation set;
+  - build and train a model on the train set;
+  - obtain micro and macro precision, recall and F1 score over the validation set;
+  - get a confusion matrix over the valiadtion set
+  - export the model in a suitable format to be served
 
-The training rule of your Makefile should, at least:
-  - split the training data into train and validation set
-  - train a model on a train set
-  - macro and micro precision F1 and recall over the validation set
-  - confusion matrix over the validation set
+The `train` rule have to build the training image defined in `train.Dockerfile` and run a container in which those steps can be executed.
 
 ### Serving a model
 
-- export the built model
 - serve the model using a CPU only machine
+- 
 
 ### Building a microservice
 
