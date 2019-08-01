@@ -39,14 +39,13 @@ Whatever the outcome of our meetings, we hope this project will help you for all
 - you must provide a Makefile in the root of the repository with the following rules:
     - `train`: build the model who will be served
     - `api`: serve the trained model through an api
-    - `test`: request the api with test set to get predictions
 - you must not push online:
     - your possible credentials
     - the unencrypted dataset
 
 ### Dependencies
 
-The following are the only required dependencies you should've installed on your system in order to complete the general instructions :
+The only required dependencies you should've installed on your system in order to complete the general instructions :
 - [`Git`](https://git-scm.com)
 - [`GnuPG`](https://gnupg.org)
 - [`Docker`](https://docs.docker.com/) - you should use the [Docker Engine - Community](https://docs.docker.com/install/)
@@ -73,35 +72,79 @@ Building a machine learning model consist, non extensively, into the following p
   - get a confusion matrix over the valiadtion set
   - export the model in a suitable format to be served
 
+The built model should be built with:
+  - an encoder part, which produces a vector representation of the input text. To build this encoder part, you can start with a TF IDF encoder, or use a neural encoder;
+  - a decoder part, which consists here of a classifier. You may want to start with SVM and then use a neural decoder.
+
 The `train` rule have to build the training image defined in `train.Dockerfile` and run a container in which those steps can be executed.
 
-### Serving a model
+### Serving a model as a microservice
 
-- serve the model using a CPU only machine
-- 
+To integrate the model into a larger applicaiton in some way, 
 
-### Building a microservice
+- serve the model using a CPU only machine;
+- build a web application - endpoint - using route `/intent` on port `4002` - to use the served model as a microservice;
+- the endpoint should return a json response whos format is specified at the end of the section;
 
-- build a web application - API endpoint `/intent` on port `4002`.
+A functional approach is to build a model server. This is an application to manage and serve models, which allow to serve multiple versions of a same model and get distinct inferences for each version. You can find more details of the way that tensorflow works to put model into production [here](https://www.tensorflow.org/tfx/serving/serving_basic), using a model server available as a [docker image](https://hub.docker.com/r/tensorflow/serving).
 
-### Test results
+The `api` rule have to take the exported model from the `train` rule and start a microservice as a container defined in an `api.Dockerfile` image.
 
-- request the api with test set to get predictions
-- 
+Once the microservice has been started, you should be abble to request it using the following command:
+```bash
+curl -G "http://localhost:4002/intent" --data-urlencode "query=risques poisson cru pendant la grossesse ?" | jq
+```
+And get the following response format:
+```json
+{
+    "intent": 26,
+    "probability": "0.73356545"
+}
+```
 
-To obtain test results, open an issue with a link to a public repository containing a Docker image.
+- - -
+
+## Key concepts
+
+### Makefile
+
+Makefile based on [GNU Make](https://www.gnu.org/software/make/) provides command to automate common tasks. 
+
+The documentation can be found [online](https://www.gnu.org/software/make/manual/make.html).
+
+> Make enables the end user to build and install your package without knowing the details of how that is done -- because these details are recorded in the makefile that you supply.
+
+> Make is not limited to any particular language. For each non-source file in the program, the makefile specifies the shell commands to compute it. These shell commands can run a compiler to produce an object file, the linker to produce an executable, ar to update a library, or TeX or Makeinfo to format documentation
+
+Examples of Makefiles can be found in [examples directory](/examples/makefile)
+
+### Docker
+
+Docker introduces two concepts:
+- an image
+- a container
+
+The documentation can be found [online](https://docs.docker.com/get-started/).
+
+> A container is launched by running an image. An image is an executable package that includes everything needed to run an application--the code, a runtime, libraries, environment variables, and configuration files.
+
+> A container is a runtime instance of an image--what the image becomes in memory when executed (that is, an image with state, or a user process). You can see a list of your running containers with the command, `docker ps`.
+
+Examples of docker images can be found in [examples directory](/examples/docker).
+
 
 - - -
 
 ## Bonus part
 
+- Implement a `test` in your Makefile to request the api with the provided test set to get predictions in a `(ID,question,intent)` format saved to a `predictions.csv` file in the root of your repository;
 - Use of an hyperparameter optimizer on a fixed validation set;
 - Quantify the variability of model performance;
-- Web interface to access model inference method.
+- Build a web interface to access model inference method.
 
 - - -
 
-## Support
+## How to get help
 
 For any help send me an email.
 
@@ -109,4 +152,4 @@ For any help send me an email.
 
 ## Contributing
 
-For any contribution, open an issue so we can talk about it
+For any contribution, open an issue so we can talk about it.
