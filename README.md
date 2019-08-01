@@ -1,8 +1,8 @@
-# posos-challenge
+# posos_sample
 
 ## Introduction
 
-The posos challenge builds on some concepts commonly used in the growing field of data science. These concepts walk you through a part of any data driven machine learning project, which include training, serving and exposing a model.
+This repo builds on some concepts commonly used in the growing field of data science. These concepts walk you through a part of any data driven machine learning project, which include training, serving and exposing a model.
 
 ## Table of contents
 
