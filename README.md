@@ -81,7 +81,7 @@ The built model should be built with:
   - an encoder part, which produces a vector representation of the input text. To build this encoder part, you can start with a TF IDF encoder, or use a neural encoder;
   - a decoder part, which consists here of a classifier. You may want to start with SVM and then use a neural decoder.
 
-The `train` rule have to build the training image defined in `train.Dockerfile` and run a container in which those steps can be executed.
+The `train` rule have to build the training image defined in `train.Dockerfile` and run a container in which those steps are executed.
 
 ### Serving a model as a microservice
 
@@ -105,6 +105,17 @@ And get the following response format:
     "intent": 26,
     "probability": "0.73356545"
 }
+```
+
+### Testing the project
+
+A woriking project should be abble to serve a model through a local API using the following commands:
+```bash
+make train ; make api
+```
+And get response from:
+```
+curl -G "http://localhost:4002/intent" --data-urlencode "query=risques poisson cru pendant la grossesse ?" | jq
 ```
 
 - - -
