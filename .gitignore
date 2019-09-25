@@ -1,6 +1,7 @@
 # Data
 data/
-trainees/
+trainees
+data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
