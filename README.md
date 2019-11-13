@@ -18,8 +18,8 @@ This repo builds on some concepts commonly used in the growing field of data sci
   * [Makefile](#makefile)
   * [Docker](#docker)
 * [Bonus part](#bonus-part)
-* [How to get help](#support)
-* [Contributing](#contribution)
+* [How to get help](#how-to-get-help)
+* [Contributing](#contributing)
 
 - - -
 
