@@ -109,9 +109,9 @@ And get the following response format:
 
 ### Testing the project
 
-A woriking project should be abble to serve a model through a local API using the following commands:
+A working project should be abble to serve a model through a local API using the following commands:
 ```bash
-make train ; make api
+make train; make api
 ```
 And get response from:
 ```
